@@ -8,7 +8,7 @@ import datetime
 import ConfigParser
 
 config = ConfigParser.RawConfigParser()
-config.read('busAlert.cfg')
+config.read('/home/vittorio/Code/myRepo/Python/busAlert/busAlert.cfg')
 
 stops = config.get('Data', 'Stops')
 stops = eval(stops)
@@ -53,10 +53,10 @@ for elem in triple:
         output += "%s stopping by in %d'. <i>ETA: %s</i>\n" % (elem[1], elem[2],
                                                         format(t+datetime.timedelta(minutes=extraTime), '%H:%M'))
 # print output
-if  output == '':
+if output == '':
     output = "No bus coming anytime soon!"
 
 # f = open('/home/vittorio/Desktop/cron.txt', 'a')
 # f.write(str(time.time()) + '\t' + output)
-call(['notify-send', '-i', '/home/vittorio/Code/portauthority/bus.png', "Bus Alert",
-      output])
+call(['notify-send', '-i', '/home/vittorio/Code/portauthority/bus.png',
+      "Bus Alert", output])
