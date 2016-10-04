@@ -4,19 +4,17 @@ import urllib2
 import re
 from subprocess import call
 import datetime
-# import time
 import ConfigParser
+import os
 
 config = ConfigParser.RawConfigParser()
-config.read('/home/vittorio/Code/myRepo/Python/busAlert/busAlert.cfg')
+path = os.path.dirname(os.path.realpath(__file__))
+config.read(path+'/busAlert.cfg')
 
 stops = config.get('Data', 'Stops')
 stops = eval(stops)
 bus = config.get('Data', 'Buses')
 bus = eval(bus)
-
-timeToStop = {'2571': 12, '7117': 5, '1177': 10}
-timeToGym = {'#71C': 33, '#67': 20, '#69': 20, '#61A': 30, '#71D': 25}
 
 triple = []     # (stop/bus line/time)
 
@@ -40,21 +38,14 @@ for s in stops:
     for b, t in zip(busLines, times):
         triple.append((s, b, t))
 
-
-# print busLines
-# print times
-
 triple.sort(key=lambda tup: tup[2])
 output = ''
 t = datetime.datetime.now()
 for elem in triple:
     if any([x in elem for x in bus]):
         output += "%s stopping by in %d'\n" % (elem[1], elem[2])
-# print output
 if output == '':
     output = "No bus coming anytime soon!"
 
-# f = open('/home/vittorio/Desktop/cron.txt', 'a')
-# f.write(str(time.time()) + '\t' + output)
-call(['notify-send', '-i', '/home/vittorio/Code/portauthority/bus.png',
+call(['notify-send', '-i', path+'/bus.png',
       "Bus Alert", output])
