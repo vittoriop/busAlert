@@ -23,7 +23,7 @@ triple = []     # (stop/bus line/time)
 for s in stops:
     busLines = []
     times = []
-    url = 'http://truetime.portauthority.org/bustime/wireless/html/eta.jsp?route=---&direction=---&displaydirection=---&stop=---&id='
+    url = 'http://truetime.portauthority.org/bustime/wireless/html/eta.jsp?route=---&direction=---&displaydirection=---&stop=---&id='   #noqa
     response = urllib2.urlopen(url+s)
     html = response.read()
     if 'No arrival times available.' in html:
@@ -49,9 +49,7 @@ output = ''
 t = datetime.datetime.now()
 for elem in triple:
     if any([x in elem for x in bus]):
-        extraTime = elem[2] + timeToGym[elem[1]]
-        output += "%s stopping by in %d'. <i>ETA: %s</i>\n" % (elem[1], elem[2],
-                                                        format(t+datetime.timedelta(minutes=extraTime), '%H:%M'))
+        output += "%s stopping by in %d'\n" % (elem[1], elem[2])
 # print output
 if output == '':
     output = "No bus coming anytime soon!"

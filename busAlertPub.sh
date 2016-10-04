@@ -27,4 +27,7 @@ export DISPLAY
 # echo $DBUS_SESSION_BUS_ADDRESS >> /home/vittorio/Desktop/cronLog.txt
 # echo $XAUTHORITY >> /home/vittorio/Desktop/cronLog.txt
 # echo $DISPLAY >> /home/vittorio/Desktop/cronLog.txt
-python /home/vittorio/Code/myRepo/Python/busAlert/busAlert.py
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo $DIR
+# python /home/vittorio/Code/myRepo/Python/busAlert/busAlert.py
+python $DIR/busAlert.py
