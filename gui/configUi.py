@@ -3,6 +3,17 @@ from PyQt4.QtGui import QApplication, QDialog
 from loadConfig import Ui_Dialog  # here you need to correct the names
 import ConfigParser
 import os
+import subprocess
+
+
+def makeCrontabLine(dayStart, dayEnd, timeStart, timeEnd, freq):
+
+    line = ''
+    line += "*/%s " % freq
+    line += "%d-%d * * " % (int(timeStart[0:2]), int(timeEnd[0:2]))
+    line += '%s-%s ' % (dayStart, dayEnd)
+
+    return line
 
 
 class mainWindow(QDialog):
@@ -19,23 +30,37 @@ class mainWindow(QDialog):
         self.ui.freq.addItems([str(x) for x in range(1, 61)])
 
     def on_ok(self):
+        # read data about bus stops and bus lines
         newStop = str(self.ui.StopText.text()).split(',')
         stopToConfig = str([elem.strip() for elem in newStop])
         newBus = str(self.ui.BusText.text()).split(',')
         busToConfig = str([elem.strip() for elem in newBus])
 
+        # write on config file
         configFile = open("../busAlert.cfg", "w")
         configFile.write("[Data]\n\n")
         configFile.write("Buses = " + busToConfig + "\n")
         configFile.write("Stops = " + stopToConfig + "\n")
+        configFile.close()
 
+        # read data to set the cron job
+        dStart = str(self.ui.dayStart.currentText())
+        dEnd = str(self.ui.dayEnd.currentText())
+        tStart = str(self.ui.timeStart.currentText())
+        tEnd = str(self.ui.timeEnd.currentText())
+        freq = str(self.ui.freq.currentText())
+
+        # write to cron
         path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
-
-        freq = "*/" + str(self.ui.freq.currentText())
-        line = freq + " * * * * " + path + "/loadenv.sh"
-
-        print line
-
+        toCron = makeCrontabLine(dStart, dEnd, tStart, tEnd, freq)
+        toCron += path + "/loadenv.sh   # automatically added by busAlert\n"
+        currentCron = subprocess.check_output(['crontab', '-l'])
+        # TODO: parse cron to replace(?) older setting
+        #       delete tmp file
+        tmp = open('tmpCron', 'w')
+        tmp.write(currentCron + toCron)
+        tmp.close()
+        subprocess.call(['crontab', 'tmpCron'])
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

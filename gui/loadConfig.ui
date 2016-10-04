@@ -83,37 +83,37 @@
    </property>
    <item>
     <property name="text">
-     <string>Mon</string>
+     <string>mon</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Tue</string>
+     <string>tue</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Wed</string>
+     <string>wed</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Thu</string>
+     <string>thu</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Fri</string>
+     <string>fri</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Sat</string>
+     <string>sat</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Sun</string>
+     <string>sun</string>
     </property>
    </item>
   </widget>
@@ -128,37 +128,37 @@
    </property>
    <item>
     <property name="text">
-     <string>Mon</string>
+     <string>mon</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Tue</string>
+     <string>tue</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Wed</string>
+     <string>wed</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Thu</string>
+     <string>thu</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Fri</string>
+     <string>fri</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Sat</string>
+     <string>sat</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Sun</string>
+     <string>sun</string>
     </property>
    </item>
   </widget>

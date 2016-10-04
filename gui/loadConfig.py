@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'loadConfig.ui'
 #
-# Created: Tue Sep 20 15:26:59 2016
+# Created: Mon Oct  3 16:12:20 2016
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -98,20 +98,20 @@ class Ui_Dialog(object):
         self.label.setText(_translate("Dialog", "Bus Stops", None))
         self.label_2.setText(_translate("Dialog", "Bus Lines", None))
         self.pushButton.setText(_translate("Dialog", "Ok", None))
-        self.dayStart.setItemText(0, _translate("Dialog", "Mon", None))
-        self.dayStart.setItemText(1, _translate("Dialog", "Tue", None))
-        self.dayStart.setItemText(2, _translate("Dialog", "Wed", None))
-        self.dayStart.setItemText(3, _translate("Dialog", "Thu", None))
-        self.dayStart.setItemText(4, _translate("Dialog", "Fri", None))
-        self.dayStart.setItemText(5, _translate("Dialog", "Sat", None))
-        self.dayStart.setItemText(6, _translate("Dialog", "Sun", None))
-        self.dayEnd.setItemText(0, _translate("Dialog", "Mon", None))
-        self.dayEnd.setItemText(1, _translate("Dialog", "Tue", None))
-        self.dayEnd.setItemText(2, _translate("Dialog", "Wed", None))
-        self.dayEnd.setItemText(3, _translate("Dialog", "Thu", None))
-        self.dayEnd.setItemText(4, _translate("Dialog", "Fri", None))
-        self.dayEnd.setItemText(5, _translate("Dialog", "Sat", None))
-        self.dayEnd.setItemText(6, _translate("Dialog", "Sun", None))
+        self.dayStart.setItemText(0, _translate("Dialog", "mon", None))
+        self.dayStart.setItemText(1, _translate("Dialog", "tue", None))
+        self.dayStart.setItemText(2, _translate("Dialog", "wed", None))
+        self.dayStart.setItemText(3, _translate("Dialog", "thu", None))
+        self.dayStart.setItemText(4, _translate("Dialog", "fri", None))
+        self.dayStart.setItemText(5, _translate("Dialog", "sat", None))
+        self.dayStart.setItemText(6, _translate("Dialog", "sun", None))
+        self.dayEnd.setItemText(0, _translate("Dialog", "mon", None))
+        self.dayEnd.setItemText(1, _translate("Dialog", "tue", None))
+        self.dayEnd.setItemText(2, _translate("Dialog", "wed", None))
+        self.dayEnd.setItemText(3, _translate("Dialog", "thu", None))
+        self.dayEnd.setItemText(4, _translate("Dialog", "fri", None))
+        self.dayEnd.setItemText(5, _translate("Dialog", "sat", None))
+        self.dayEnd.setItemText(6, _translate("Dialog", "sun", None))
         self.label_3.setText(_translate("Dialog", "Monitor bus", None))
         self.label_4.setText(_translate("Dialog", "through", None))
         self.label_5.setText(_translate("Dialog", "from", None))
