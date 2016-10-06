@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=busAlert
+Comment=Check the time your bus is coming
+Exec=python /home/vittorio/Code/myRepo/Python/busAlert/gui/configUi.py
+Icon=/home/vittorio/Code/myRepo/Python/busAlert/bus.png
+Terminal=false
+Type=Application
+Categories=Utility;Application;

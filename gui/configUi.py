@@ -37,7 +37,8 @@ class mainWindow(QDialog):
         busToConfig = str([elem.strip() for elem in newBus])
 
         # write on config file
-        configFile = open("../busAlert.cfg", "w")
+        path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+        configFile = open(path + "/busAlert.cfg", "w")
         configFile.write("[Data]\n\n")
         configFile.write("Buses = " + busToConfig + "\n")
         configFile.write("Stops = " + stopToConfig + "\n")
@@ -66,7 +67,8 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = mainWindow()
     config = ConfigParser.RawConfigParser()
-    config.read('../busAlert.cfg')
+    path = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+    config.read(path + '/busAlert.cfg')
     try:
         stops = config.get('Data', 'Stops')
         stops = eval(stops)
